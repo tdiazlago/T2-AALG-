@@ -1,0 +1,36 @@
+import random
+def buscar_multiplos(arglo, indc, men, may):
+
+    if indc == len(arglo):
+        return men, may
+
+    num = arglo[indc]
+
+    if num % 3 == 0:
+
+        if men is None or num < men:
+            men = num
+
+        if may is None or num > may:
+            may = num
+
+    return buscar_multiplos(arglo, indc + 1, men, may)
+n = int(input("Ingrese la cantidad de arreglos que desea generar :"))
+
+arglo = []
+
+for i in range(n):
+    num = random.randint(10, 9999)
+    arglo.append(num)
+
+print("\nArreglo generado aleatorio: \n")
+print(arglo)
+men, may = buscar_multiplos(arglo, 0, None, None)
+
+if men is not None and may is not None:
+    promedio = (men + may) / 2
+    print("\nMenor múltiplo de 3:", men)
+    print("\nMayor múltiplo de 3:", may)
+    print("\nPromedio:", promedio)
+else:
+    print("\nNo existen múltiplos de 3 en el arreglo aleatorio")
