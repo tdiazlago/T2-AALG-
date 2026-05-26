@@ -1,0 +1,22 @@
+def suma_recursiva(list, pi, pf):
+
+    if pi > pf:
+        return 0
+    return list[pi] + suma_recursiva(list, pi + 1, pf)
+
+n = int(input("Ingrese la cantidad de elementos: "))
+
+list = []
+
+for i in range(n):
+    num = int(input(f"Ingrese número {i+1}: "))
+    list.append(num)
+
+print("\nLista:", list)
+
+pi = int(input("Ingrese PI: "))-1
+pf = int(input("Ingrese PF: "))-1
+
+res = suma_recursiva(list, pi, pf)
+
+print("Resultado:", res)
